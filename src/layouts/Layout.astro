@@ -5,6 +5,7 @@ interface Props {
 }
 
 const { title, description = 'Welcome to our stunning landing page' } = Astro.props;
+import Chatbot from '../components/Chatbot.astro';
 ---
 
 <!doctype html>
@@ -22,6 +23,7 @@ const { title, description = 'Welcome to our stunning landing page' } = Astro.pr
   </head>
   <body>
     <slot />
+    <Chatbot />
   </body>
 </html>
 
