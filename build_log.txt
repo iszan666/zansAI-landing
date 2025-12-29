@@ -1,0 +1,71 @@
+﻿
+> landing-page@0.0.1 build
+> astro build
+
+[2m11:00:16[22m [34m[content][39m Syncing content
+[2m11:00:16[22m [34m[content][39m Synced content
+[2m11:00:16[22m [34m[types][39m Generated [2m51ms[22m
+[2m11:00:16[22m [34m[build][39m output: [34m"static"[39m
+[2m11:00:16[22m [34m[build][39m mode: [34m"static"[39m
+[2m11:00:16[22m [34m[build][39m directory: [34mE:\workspace izan\landing-pagehuhu\dist\[39m
+[2m11:00:16[22m [34m[build][39m Collecting build info...
+[2m11:00:16[22m [34m[build][39m [32mΓ£ô Completed in 66ms.[39m
+[2m11:00:16[22m [34m[build][39m Building static entrypoints...
+node.exe : [31m[1m11
+:00:17[22m [ERROR] 
+[vite][39m 
+[31mΓ£ù[39m Build 
+failed in 794ms
+At line:1 char:1
++ & "C:\Program Files\
+nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: ([31m[1m1   
+ 1:00:...failed in    
+ 794ms:String) []    
+, RemoteException
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+Expected "}" but 
+found ":"
+  [1mLocation:[22m
+    [4mE:/workspace i
+zan/landing-pagehuhu/s
+rc/pages/get-started.a
+stro:32:8[24m
+  [1mStack 
+trace:[22m
+[2m    at 
+failureErrorWithLog 
+(E:\workspace izan\lan
+ding-pagehuhu\node_mod
+ules\esbuild\lib\main.
+js:1467:15)
+    at responseCallbac
+ks.<computed> 
+(E:\workspace izan\lan
+ding-pagehuhu\node_mod
+ules\esbuild\lib\main.
+js:603:9)
+    at 
+Socket.readFromStdout 
+(E:\workspace izan\lan
+ding-pagehuhu\node_mod
+ules\esbuild\lib\main.
+js:581:7)
+    at addChunk (node:
+internal/streams/reada
+ble:559:12)
+    at Readable.push (
+node:internal/streams/
+readable:390:5)[22m

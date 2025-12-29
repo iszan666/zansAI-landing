@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Documentation | ZansAI" description="Official documentation for ZansAI platform">
+  <Navbar />
+  <main class="page-content">
+    <div class="container">
+      <div class="page-header">
+        <h1>Documentation</h1>
+        <p class="lead">Everything you need to build with ZansAI.</p>
+      </div>
+
+      <div class="docs-grid">
+        <a href="#" class="doc-card">
+          <div class="icon">🚀</div>
+          <h3>Quick Start</h3>
+          <p>Get up and running in less than 5 minutes.</p>
+        </a>
+        <a href="#" class="doc-card">
+          <div class="icon">🔧</div>
+          <h3>SDK Reference</h3>
+          <p>Detailed API documentation for our SDKs.</p>
+        </a>
+        <a href="#" class="doc-card">
+          <div class="icon">📦</div>
+          <h3>Integrations</h3>
+          <p>Connect ZansAI with your favorite tools.</p>
+        </a>
+        <a href="#" class="doc-card">
+          <div class="icon">💡</div>
+          <h3>Guides</h3>
+          <p>Step-by-step tutorials and best practices.</p>
+        </a>
+        <a href="#" class="doc-card">
+          <div class="icon">🔄</div>
+          <h3>API Reference</h3>
+          <p>Direct REST API endpoints and usage.</p>
+        </a>
+        <a href="#" class="doc-card">
+          <div class="icon">🏰</div>
+          <h3>Architecture</h3>
+          <p>Deep dive into how ZansAI works under the hood.</p>
+        </a>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-content {
+    padding-top: 8rem;
+    padding-bottom: 6rem;
+    min-height: 80vh;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+  }
+
+  .docs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .doc-card {
+    padding: 2rem;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .doc-card:hover {
+    transform: translateY(-5px);
+    background: var(--bg-card-hover);
+    border-color: var(--color-primary);
+  }
+
+  .icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+</style>

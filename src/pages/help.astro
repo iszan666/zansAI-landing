@@ -1,0 +1,197 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Help Center | ZansAI" description="ZansAI Support and Help Center">
+  <Navbar />
+  <main class="page-content">
+    <div class="container">
+      <div class="page-header">
+        <h1>Help Center</h1>
+        <p class="lead">How can we help you today?</p>
+        <div class="search-box">
+          <input type="text" placeholder="Search for help articles..." />
+          <button>Search</button>
+        </div>
+      </div>
+
+      <div class="categories">
+        <h2>Browse by Category</h2>
+        <div class="category-grid">
+          <div class="category-item">
+            <h3>Account & Billing</h3>
+            <ul>
+              <li><a href="#">Managing your subscription</a></li>
+              <li><a href="#">Payment methods</a></li>
+              <li><a href="#">Team management</a></li>
+            </ul>
+          </div>
+          <div class="category-item">
+            <h3>Getting Started</h3>
+            <ul>
+              <li><a href="#">Creating your first project</a></li>
+              <li><a href="#">Installing the CLI</a></li>
+              <li><a href="#">API Key management</a></li>
+            </ul>
+          </div>
+          <div class="category-item">
+            <h3>Platform</h3>
+            <ul>
+              <li><a href="#">Deployment issues</a></li>
+              <li><a href="#">Performance tuning</a></li>
+              <li><a href="#">Security best practices</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-support">
+        <h2>Still need help?</h2>
+        <p>Our support team is available 24/7.</p>
+        <a href="#" class="btn btn-primary">Contact Support</a>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-content {
+    padding-top: 8rem;
+    padding-bottom: 6rem;
+    min-height: 80vh;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .search-box {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .search-box input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--bg-card);
+    color: white;
+    font-size: 1rem;
+  }
+
+  .search-box button {
+    padding: 0 2rem;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .categories {
+    margin-bottom: 5rem;
+  }
+
+  .categories h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .category-item {
+    padding: 2rem;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .category-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary-light);
+  }
+
+  .category-item ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .category-item li {
+    margin-bottom: 0.75rem;
+  }
+
+  .category-item a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .category-item a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  .contact-support {
+    text-align: center;
+    padding: 3rem;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+  }
+  
+  .contact-support h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .contact-support p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--color-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: transform 0.2s;
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+</style>

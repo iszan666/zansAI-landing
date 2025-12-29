@@ -1,0 +1,254 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Community | ZansAI" description="Join the ZansAI Community">
+  <Navbar />
+  <main class="page-content">
+    <div class="container">
+      <div class="page-header">
+        <h1>Community</h1>
+        <p class="lead">Connect with thousands of developers building the future.</p>
+      </div>
+
+      <div class="community-grid">
+        <a href="#" class="community-card discord">
+          <div class="card-content">
+            <div class="icon">💬</div>
+            <h2>Discord</h2>
+            <p>Chat with fellow developers, get help, and share your projects.</p>
+            <span class="member-count">12,500+ members</span>
+          </div>
+          <div class="card-action">Join Server →</div>
+        </a>
+
+        <a href="#" class="community-card github">
+          <div class="card-content">
+            <div class="icon">💻</div>
+            <h2>GitHub</h2>
+            <p>Contribute to our open source projects and report issues.</p>
+            <span class="member-count">4,200+ stars</span>
+          </div>
+          <div class="card-action">View Repos →</div>
+        </a>
+
+        <a href="#" class="community-card twitter">
+          <div class="card-content">
+            <div class="icon">🐦</div>
+            <h2>Twitter/X</h2>
+            <p>Stay up to date with the latest announcements and features.</p>
+            <span class="member-count">25.4k followers</span>
+          </div>
+          <div class="card-action">Follow Us →</div>
+        </a>
+      </div>
+
+      <div class="events-section">
+        <h2>Upcoming Events</h2>
+        <div class="event-list">
+          <div class="event-item">
+            <div class="event-date">
+              <span class="day">15</span>
+              <span class="month">JAN</span>
+            </div>
+            <div class="event-details">
+              <h3>Community Townhall</h3>
+              <p>Join us for our monthly community sync and Q&A session.</p>
+            </div>
+            <a href="#" class="btn btn-outline">Register</a>
+          </div>
+          <div class="event-item">
+            <div class="event-date">
+              <span class="day">22</span>
+              <span class="month">JAN</span>
+            </div>
+            <div class="event-details">
+              <h3>Building with Astro Workshop</h3>
+              <p>Learn how to deploy your first ZansAI app with Astro.</p>
+            </div>
+            <a href="#" class="btn btn-outline">Register</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-content {
+    padding-top: 8rem;
+    padding-bottom: 6rem;
+    min-height: 80vh;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+  }
+
+  .community-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 5rem;
+  }
+
+  .community-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px;
+    transition: all 0.3s ease;
+  }
+
+  .community-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
+  }
+
+  .icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .community-card h2 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .community-card p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .member-count {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary-light);
+    display: block;
+  }
+
+  .card-action {
+    margin-top: 2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .events-section {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .events-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .event-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .event-date {
+    text-align: center;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-sm);
+  }
+
+  .day {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-primary-light);
+  }
+
+  .month {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+
+  .event-details {
+    flex: 1;
+  }
+
+  .event-details h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+  }
+
+  .event-details p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+
+  .btn-outline {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover {
+    background: white;
+    color: black;
+  }
+
+  @media (max-width: 640px) {
+    .event-item {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+  }
+</style>

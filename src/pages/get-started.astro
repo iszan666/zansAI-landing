@@ -1,0 +1,473 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Get Started | ZansAI" description="Start building with ZansAI">
+  <Navbar />
+  <main>
+    <section class="hero">
+      <div class="hero-bg">
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+      </div>
+      <div class="container">
+        <span class="badge">🚀 Quick Setup</span>
+        <h1>Get Started with <span class="gradient-text">ZansAI</span></h1>
+        <p class="subtitle">Deploy your first model in under 5 minutes. No credit card required.</p>
+      </div>
+    </section>
+
+    <section class="steps">
+      <div class="container">
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Create Your Account</h3>
+              <p>Sign up with your email or connect via GitHub, Google, or SSO for enterprise accounts.</p>
+              <div class="step-action">
+                <a href="#signup" class="btn btn-primary">Create Account →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Install the SDK</h3>
+              <p>Add ZansAI to your project with a single command. We support all major languages.</p>
+              <div class="code-block">
+                <code>npm install @zansai/sdk</code>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Initialize &amp; Deploy</h3>
+              <p>Configure your API key and deploy your first model to our global edge network.</p>
+              <div class="code-block code-multiline">
+                <pre><code>import Zans from '@zansai/sdk';
+
+const app = await Zans.init({'{'}
+  apiKey: process.env.ZANS_KEY
+{'}'});</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card featured">
+            <div class="step-number">✓</div>
+            <div class="step-content">
+              <h3>You're Live!</h3>
+              <p>That's it! Your model is now deployed across 140+ edge locations worldwide.</p>
+              <div class="success-stats">
+                <div class="stat">
+                  <span class="stat-value">12ms</span>
+                  <span class="stat-label">Avg. Latency</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-value">140+</span>
+                  <span class="stat-label">Edge Nodes</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-value">99.99%</span>
+                  <span class="stat-label">Uptime</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="resources">
+      <div class="container">
+        <h2>Helpful Resources</h2>
+        <div class="resources-grid">
+          <a href="#docs" class="resource-card">
+            <div class="resource-icon">📚</div>
+            <h4>Documentation</h4>
+            <p>Comprehensive guides and API references</p>
+          </a>
+          <a href="#tutorials" class="resource-card">
+            <div class="resource-icon">🎓</div>
+            <h4>Tutorials</h4>
+            <p>Step-by-step video walkthroughs</p>
+          </a>
+          <a href="#examples" class="resource-card">
+            <div class="resource-icon">💻</div>
+            <h4>Examples</h4>
+            <p>Production-ready code samples</p>
+          </a>
+          <a href="#community" class="resource-card">
+            <div class="resource-icon">💬</div>
+            <h4>Community</h4>
+            <p>Join our Discord for support</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <h2>Need Help Getting Started?</h2>
+        <p>Our team is here to help you succeed. Schedule a free onboarding call.</p>
+        <div class="cta-actions">
+          <a href="#schedule" class="btn btn-primary">Schedule a Call</a>
+          <a href="/" class="btn btn-secondary">Back to Home</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .hero {
+    position: relative;
+    padding: 10rem 2rem 6rem;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.4;
+  }
+
+  .hero-orb-1 {
+    width: 500px;
+    height: 500px;
+    background: #6366f1;
+    top: -200px;
+    left: -100px;
+  }
+
+  .hero-orb-2 {
+    width: 400px;
+    height: 400px;
+    background: #ec4899;
+    bottom: -150px;
+    right: -100px;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 10;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #6366f1;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    color: #64748b;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .steps {
+    padding: 4rem 2rem 6rem;
+    background: #ffffff;
+  }
+
+  .steps-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .step-card {
+    display: flex;
+    gap: 2rem;
+    padding: 2.5rem;
+    background: #f8fafc;
+    border-radius: 1.5rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+  }
+
+  .step-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  .step-card.featured {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border: none;
+  }
+
+  .step-card.featured .step-number {
+    background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+    color: white;
+  }
+
+  .step-card.featured h3,
+  .step-card.featured p {
+    color: white;
+  }
+
+  .step-card.featured p {
+    opacity: 0.8;
+  }
+
+  .step-number {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 800;
+    border-radius: 1rem;
+  }
+
+  .step-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.75rem;
+  }
+
+  .step-content p {
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+  }
+
+  .btn-secondary {
+    background: #f1f5f9;
+    color: #0f172a;
+    border: 1px solid #e2e8f0;
+  }
+
+  .btn-secondary:hover {
+    background: #e2e8f0;
+  }
+
+  .code-block {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: #0f172a;
+    border-radius: 0.75rem;
+    font-family: 'Fira Code', 'Monaco', monospace;
+  }
+
+  .code-block code {
+    color: #22d3ee;
+    font-size: 0.95rem;
+  }
+
+  .code-multiline {
+    display: block;
+    padding: 1.5rem;
+  }
+
+  .code-multiline pre {
+    margin: 0;
+    white-space: pre-wrap;
+  }
+
+  .code-multiline code {
+    color: #e2e8f0;
+    line-height: 1.8;
+  }
+
+  .success-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #22c55e;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .resources {
+    padding: 6rem 2rem;
+    background: #f8fafc;
+  }
+
+  .resources h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 3rem;
+  }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .resource-card {
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    border: 1px solid #e2e8f0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .resource-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    border-color: #6366f1;
+  }
+
+  .resource-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .resource-card h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+  }
+
+  .resource-card p {
+    font-size: 0.9rem;
+    color: #64748b;
+  }
+
+  .cta {
+    padding: 6rem 2rem;
+    text-align: center;
+    background: white;
+  }
+
+  .cta h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 1rem;
+  }
+
+  .cta p {
+    color: #64748b;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .step-card {
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .success-stats {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .cta-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn {
+      width: 100%;
+      max-width: 280px;
+      justify-content: center;
+    }
+  }
+</style>

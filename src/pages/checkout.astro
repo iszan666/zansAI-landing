@@ -1,0 +1,399 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Checkout | ZansAI" description="Complete your secure payment">
+  <Navbar />
+  <main class="page-content">
+    <div class="container">
+      <div class="checkout-grid">
+        <div class="checkout-form-section">
+          <div class="checkout-header">
+            <h1>Secure Checkout</h1>
+            <p>Complete your subscription to unlock premium features.</p>
+          </div>
+
+          <form class="payment-form">
+            <div class="form-section">
+              <h3>Contact Information</h3>
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" id="email" placeholder="you@company.com" required>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3>Payment Method</h3>
+              <div class="payment-tabs">
+                <button type="button" class="payment-tab active">
+                  <span class="icon">💳</span> Card
+                </button>
+                <button type="button" class="payment-tab">
+                  <span class="icon">🅿️</span> PayPal
+                </button>
+              </div>
+
+              <div class="form-group">
+                <label for="card-number">Card number</label>
+                <div class="input-with-icon">
+                  <input type="text" id="card-number" placeholder="0000 0000 0000 0000" required>
+                  <span class="card-brands">VISA MC AMEX</span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="expiry">Expiry date</label>
+                  <input type="text" id="expiry" placeholder="MM / YY" required>
+                </div>
+                <div class="form-group">
+                  <label for="cvc">CVC</label>
+                  <input type="text" id="cvc" placeholder="123" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="cardholder">Cardholder name</label>
+                <input type="text" id="cardholder" placeholder="Full Name" required>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Pay Securely</button>
+            <p class="secure-note">
+              <span class="lock-icon">🔒</span>
+              Payments are processed securely by Stripe. Your card details are never stored on our servers.
+            </p>
+          </form>
+        </div>
+
+        <div class="checkout-summary">
+          <div class="summary-card">
+            <h3>Order Summary</h3>
+            <div class="selected-plan">
+              <div class="plan-header">
+                <div>
+                  <h4 class="plan-name">Professional Plan</h4>
+                  <span class="billing-cycle">Monthly billing</span>
+                </div>
+                <div class="plan-price">$29.00</div>
+              </div>
+              <ul class="plan-features">
+                <li>✓ Unlimited projects</li>
+                <li>✓ Advanced analytics</li>
+                <li>✓ Priority support</li>
+                <li>✓ Custom domains</li>
+              </ul>
+            </div>
+            
+            <div class="summary-totals">
+              <div class="total-row">
+                <span>Subtotal</span>
+                <span>$29.00</span>
+              </div>
+              <div class="total-row">
+                <span>Tax (Estimated)</span>
+                <span>$2.90</span>
+              </div>
+              <div class="total-row total">
+                <span>Total due today</span>
+                <span>$31.90</span>
+              </div>
+            </div>
+
+            <div class="guarantee-box">
+              <div class="icon">🛡️</div>
+              <div class="text">
+                <strong>14-Day Money-Back Guarantee</strong>
+                <p>If you're not satisfied, contact us within 14 days for a full refund.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  // Simple URL parameter handling to update plan name/price
+  const params = new URLSearchParams(window.location.search);
+  const plan = params.get('plan');
+  
+  if (plan) {
+    const planNameEl = document.querySelector('.plan-name');
+    const planPriceEl = document.querySelector('.plan-price');
+    const subtotalEl = document.querySelectorAll('.total-row span:last-child');
+    
+    if (plan === 'enterprise') {
+      if (planNameEl) planNameEl.textContent = 'Enterprise Plan';
+      if (planPriceEl) planPriceEl.textContent = '$99.00';
+      if (subtotalEl[0]) subtotalEl[0].textContent = '$99.00';
+      if (subtotalEl[1]) subtotalEl[1].textContent = '$9.90';
+      if (subtotalEl[2]) subtotalEl[2].textContent = '$108.90';
+    }
+  }
+</script>
+
+<style>
+  .page-content {
+    padding-top: 8rem;
+    padding-bottom: 6rem;
+    min-height: 80vh;
+    background: var(--bg-dark);
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .checkout-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+  }
+
+  .checkout-header {
+    margin-bottom: 3rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .checkout-header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+  }
+
+  .form-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .form-section h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    color: white;
+    font-size: 1rem;
+    transition: all 0.2s;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  }
+
+  .payment-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .payment-tab {
+    flex: 1;
+    padding: 1rem;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+  }
+
+  .payment-tab.active {
+    background: rgba(99, 102, 241, 0.1);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .input-with-icon {
+    position: relative;
+  }
+
+  .card-brands {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .btn-block {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .secure-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .summary-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    position: sticky;
+    top: 6rem;
+  }
+
+  .summary-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+  }
+
+  .selected-plan {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1.5rem;
+  }
+
+  .plan-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .plan-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .billing-cycle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .plan-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .plan-features {
+    list-style: none;
+    padding: 0;
+  }
+
+  .plan-features li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  .summary-totals {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .total-row {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+
+  .total-row.total {
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .guarantee-box {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(34, 197, 94, 0.1);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+  }
+
+  .guarantee-box .icon {
+    font-size: 1.5rem;
+  }
+
+  .guarantee-box strong {
+    display: block;
+    color: #22c55e;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .guarantee-box p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .checkout-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .checkout-grid {
+      display: flex;
+      flex-direction: column-reverse; /* Show summary first on mobile? No, form usually first or standard order */
+      flex-direction: column;
+    }
+  }
+</style>

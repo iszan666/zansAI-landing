@@ -1,0 +1,243 @@
+---
+const plans = [
+  {
+    name: 'Starter',
+    price: '0',
+    description: 'Perfect for trying out our platform',
+    features: [
+      'Up to 3 projects',
+      'Basic analytics',
+      'Community support',
+      '48-hour response time'
+    ],
+    cta: 'Get Started Free',
+    href: '/get-started',
+    popular: false
+  },
+  {
+    name: 'Professional',
+    price: '29',
+    description: 'Ideal for growing businesses',
+    features: [
+      'Unlimited projects',
+      'Advanced analytics',
+      'Priority support',
+      'Custom domains',
+      'Team collaboration',
+      'API access'
+    ],
+    cta: 'Start Free Trial',
+    href: '/checkout?plan=professional',
+    popular: true
+  },
+  {
+    name: 'Enterprise',
+    price: '99',
+    description: 'For large organizations',
+    features: [
+      'Everything in Professional',
+      'Dedicated account manager',
+      'Custom integrations',
+      'SLA guarantee',
+      'Advanced security',
+      'Training sessions'
+    ],
+    cta: 'Contact Sales',
+    href: '/checkout?plan=enterprise',
+    popular: false
+  }
+];
+---
+
+<section class="pricing section" id="pricing">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Pricing</span>
+      <h2 class="section-title">
+        Simple, transparent
+        <span class="gradient-text">pricing</span>
+      </h2>
+      <p class="section-description">
+        Choose the plan that's right for you. All plans include a 14-day free trial.
+      </p>
+    </div>
+    
+    <div class="pricing-grid">
+      {plans.map((plan) => (
+        <article class={`pricing-card glass-card ${plan.popular ? 'popular' : ''}`}>
+          {plan.popular && <span class="popular-badge">Most Popular</span>}
+          <h3 class="plan-name">{plan.name}</h3>
+          <div class="plan-price">
+            <span class="price-currency">$</span>
+            <span class="price-amount">{plan.price}</span>
+            <span class="price-period">/month</span>
+          </div>
+          <p class="plan-description">{plan.description}</p>
+          <ul class="plan-features">
+            {plan.features.map((feature) => (
+              <li class="feature-item">
+                <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+          <a href={plan.href} class={`btn ${plan.popular ? 'btn-primary' : 'btn-secondary'} btn-full`}>
+            {plan.cta}
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing {
+    background: var(--bg-dark-secondary);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-primary-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .section-description {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    align-items: stretch;
+  }
+
+  .pricing-card {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 10;
+  }
+
+  .pricing-card.popular {
+    border-color: var(--color-primary);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1.5rem;
+    background: var(--gradient-primary);
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+  }
+
+  .plan-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .plan-price {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 0.75rem;
+  }
+
+  .price-currency {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+
+  .price-amount {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .price-period {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-left: 0.5rem;
+  }
+
+  .plan-description {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .plan-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .feature-item:last-child {
+    border-bottom: none;
+  }
+
+  .check-icon {
+    flex-shrink: 0;
+    color: var(--color-accent);
+  }
+
+  .btn-full {
+    width: 100%;
+    margin-top: auto;
+  }
+
+  @media (max-width: 1024px) {
+    .pricing-grid {
+      grid-template-columns: 1fr;
+      max-width: 450px;
+      margin: 0 auto;
+    }
+  }
+</style>
